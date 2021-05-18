@@ -14,11 +14,12 @@ const Formulario = () => {
   //Funcion para leer el form
   const getIngredientsCocktail = (e) => {
     e.preventDefault();
-    setAllowFecth(true);
+
     setSearch({
       ingredient: refName.current.value,
       category: refCategory.current.value,
     });
+    setAllowFecth(true);
   };
 
   return (

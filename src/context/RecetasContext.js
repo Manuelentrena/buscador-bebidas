@@ -26,7 +26,7 @@ const RecetasProvider = (props) => {
       }
     };
     obtenerRecetas();
-  }, [ingredient, category, allowFecth]);
+  }, [allowFecth, ingredient, category]);
 
   return (
     <RecetasContext.Provider value={{ recipes, setSearch, setAllowFecth }}>
