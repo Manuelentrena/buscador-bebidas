@@ -1,11 +1,11 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 export const ModalContext = createContext();
 
 const ModalProvider = (props) => {
   //state del provider
   const [idRecipe, setIdRecipe] = useState(null);
-  const [recipe, setRecipe] = useState(null);
+  const [infoRecipe, setRecipe] = useState(null);
 
   //Una vez tenemos una recepa, llamamos a la API por ID
 
@@ -21,10 +21,14 @@ const ModalProvider = (props) => {
     };
 
     getRecipebyID();
+
+    return () => {
+      setRecipe({});
+    };
   }, [idRecipe]);
 
   return (
-    <ModalContext.Provider value={{ setIdRecipe }}>
+    <ModalContext.Provider value={{ infoRecipe, setIdRecipe }}>
       {props.children}
     </ModalContext.Provider>
   );
